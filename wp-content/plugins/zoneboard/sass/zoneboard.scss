@@ -1,0 +1,136 @@
+@import "base";
+@import "fontawesome/font-awesome";
+
+$zoneboard-green : #004f45;
+
+.logo-banner {
+  background-color: #fff;
+  margin-left: -20px;
+  max-height: 100px;
+  padding: 15px 0 15px 20px;
+}
+
+.logo-banner img {
+  max-height: 100px;
+}
+
+.wp-menu-name {
+
+  &:after {
+    border: 8px solid green;
+    border-right-color: red !important;
+  }
+}
+
+.intro-line {
+  display: block;
+
+  @include mq(800px, 1700px) {
+  display: inline-block;
+  float: right;
+}
+
+  >h3 {
+	font-size: 18px;
+font-weight: 400;
+line-height: 24px;
+}
+}
+
+.wrap {
+  >h2 {
+
+    font-size: 30px;
+    display: inline-block;
+  }
+}
+
+.panel-headline {
+	font-size: 1.1em;
+  line-height: 2em;
+  border-bottom: 1px solid $black-15 ;
+  padding-bottom: 6px;
+  font-weight: bold;
+  color: $zoneboard-green;
+}
+
+.panel-decoration {
+  height: 1px;
+  width: 100%;
+  background-color: lighten($light-blue, 24%);
+  margin-top: 5px;
+}
+
+.dashboard-grid {
+  @include box-sizing(border-box);
+  margin: 0 -1em;
+  clear: both;
+}
+
+.dashboard-brick {
+ float: left;
+ color: #000;
+ padding: 0em 1em 1.9em;
+  @include box-sizing(border-box);
+  @include mq(max, 540px){width: 100%}
+  @include mq(540px, 1120px){width: 50%}
+  @include mq(1120px, 1439px){width: 33.3%}
+  @include mq(1439px, 1800px){width: 25%}
+  @include mq(1800px){width: 20%}
+
+  // &.icon {
+  //   color: #004f45 !important;
+  // }
+}
+
+.panel-content {
+  padding: 1.6em 2.0em 0 2.3em;
+  font-size: 1.1em;
+  background-color: white;
+  @include border-radius(4px);
+
+  @include mq(540px) {
+    height: 200px;
+  }
+}
+
+.inpanel-links {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 16px 0 20px 10px;
+    text-indent: -10px;
+     .bullet-square{
+       	padding-right: 4px;
+       	font-size: 7px;
+        vertical-align: middle;
+       }
+       .control-links {
+    	text-decoration: none;
+    	color:black;
+    	line-height: .5em;
+       }
+       ul > li:hover {
+       	.bullet-square { color: $blue }
+       	.control-links { color: #40b797}
+       }
+}
+
+// .control-links {
+//   padding-left: -10px;
+// }
+
+.bullet-square {
+  display: none;
+}
+
+.icon {
+	font-size: 1.3em;
+  line-height: 1.6em;
+  float:right;
+  margin-top:-2px;
+  margin-right: 2%;
+  color: $zoneboard-green;
+}
+
+
+

@@ -1,0 +1,196 @@
+/*
+    Mobile Menu Core Style
+*/
+
+/*.slicknav_btn { position: relative; display: block; vertical-align: middle; float: right; padding: 0.438em 0.625em 0.438em 0.625em; line-height: 1.125em; cursor: pointer; }*/
+@import url("fonts.css");
+.slicknav_btn{
+	background-image:url(http://www.computerrecyclingsf.com/images/all_icon.png);
+	background-repeat:no-repeat;
+	background-position: -1px -306px;
+    float: left;
+    height: 40px;
+    width: 40px;
+	position:absolute; 
+	display: block; right:0;
+	right: 15px;
+	top:4px;
+}
+
+.slicknav_btn:hover{
+	background-image:url(http://www.computerrecyclingsf.com/images/all_icon.png);
+	background-repeat:no-repeat;
+	background-position: -1px -350px;
+    float: right;
+    height: 40px;
+    width: 40px;
+}
+
+
+
+
+.slicknav_menu  .slicknav_menutxt { display: block; line-height: 1.188em; float: left; }
+.slicknav_menu .slicknav_icon { float: left; margin: 0.188em 0 0 0.438em; }
+.slicknav_menu .slicknav_no-text { margin: 0 }
+.slicknav_menu .slicknav_icon-bar { display: block; width: 1.125em; height: 0.125em; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); }
+.slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar { margin-top: 0.188em }
+.slicknav_nav { clear: both }
+.slicknav_nav ul,
+.slicknav_nav li { display: block }
+.slicknav_nav .slicknav_arrow { position:absolute; left:5px;  font-size: 22px; margin: -33px 0 0 0.4em; float:left; font-family:Georgia, "Times New Roman", Times, serif; line-height: 0.75em; font-weight:bolder;  }
+.slicknav_nav .slicknav_arrow img{ background:none;}
+.slicknav_nav .slicknav_item { display: block; cursor: pointer; }
+.slicknav_nav a { display: block }
+.slicknav_nav .slicknav_item a { display: inline }
+.slicknav_menu:before,
+.slicknav_menu:after { content: " "; display: table; }
+.slicknav_menu:after { clear: both }
+/* IE6/7 support */
+.slicknav_menu { *zoom: 1 }
+
+/* 
+    User Default Style
+    Change the following styles to modify the appearance of the menu.
+*/
+
+.slicknav_menu {
+	font-size:16px;
+}
+/* Button */
+/*.slicknav_btn {
+	margin: 5px 5px 6px;	
+	text-decoration:none;	
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;  
+	background-color: #222222;
+}
+*//* Button Text */
+.slicknav_menu  .slicknav_menutxt {	
+	color: #FFF;
+	font-weight: bold;	
+	text-shadow: 0 1px 3px #000;	
+}
+/* Button Lines */
+.slicknav_menu .slicknav_icon-bar {
+  background-color: #f5f5f5;
+  display:none;
+}
+.slicknav_menu {
+	background:#cccccc;
+}
+.slicknav_nav {
+	color:#fff;
+	margin:0;	
+	padding:0;
+	font-size:17px;
+	font-family: 'helveticaneuethin', Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+.slicknav_nav, .slicknav_nav ul {
+	list-style: none;
+	overflow:hidden;
+	margin-top:50px;
+}
+.slicknav_nav ul {
+	padding:0;
+	margin:0 0 0 0;
+}
+.slicknav_nav ul li{ border-bottom:1px solid #d0d0d0;
+	
+	background: #fefefe; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #fefefe 0%, #eeeeee 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fefefe 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fefefe 0%,#eeeeee 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fefefe 0%,#eeeeee 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fefefe 0%,#eeeeee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#eeeeee',GradientType=0 ); /* IE6-8 */
+
+}
+.slicknav_nav ul li ul{ padding-top:20px; padding-bottom:20px; background:#fff;}
+.slicknav_nav ul li ul li{ border-bottom:none; background:#fff;}
+.slicknav_nav ul li ul li a{
+	padding:5px 14px;
+	text-decoration:none;
+	color:#35679a;
+	background:none;
+	font-family:'helveticaneuemedium';
+}
+.slicknav_nav ul li ul li a:hover{ background:none; color:#35679a; text-decoration:underline;}
+.slicknav_nav .slicknav_item {
+	padding:0;
+	text-decoration:none;
+	color:#666666;
+	background:#f2f2f2;
+	border-bottom:1px solid #d0d0d0;
+}
+
+.slicknav_nav .slicknav_item a {
+	color:#666;
+	display:block;
+}
+.slicknav_nav .slicknav_item a:hover {
+	color:#fff!important;
+	background:none;
+}
+
+.slicknav_nav a{
+	padding:14px 14px 14px 40px;
+	text-decoration:none;
+	color:#666666;
+	background:url(http://www.computerrecyclingsf.com/images/right-side-arrow.png) 15px center no-repeat;
+
+}
+
+.slicknav_nav a:hover{ color:#fff;}
+.slicknav_nav .slicknav_item a {
+	padding:padding:14px 14px 14px 40px;
+	margin:0;
+	background:none;
+}
+.slicknav_nav .slicknav_item:hover {
+	background:#008980;
+	color:#ffffff!important;
+}
+.slicknav_nav a:hover{
+	background:#008980 url(http://www.computerrecyclingsf.com/images/right-side-white-arrow.png) 15px center no-repeat;
+	color:#ffffff;
+}
+.slicknav_nav a:{
+	background:#008980;
+	color:#ffffff;
+}
+
+.slicknav_nav .slicknav_txtnode {
+     margin-left:15px;   
+}
+
+@media screen and (max-width: 767px){
+.slicknav_btn{ position:fixed; z-index:1;}
+
+}
+@media screen and (max-width: 480px){
+.slicknav_btn {top:7px;}
+
+}
+
+@media screen and (max-width: 384px){
+.slicknav_btn {top:5px;}
+}
+
+
+.slicknav_nav .slicknav_open a.slicknav_item a{ 
+	background:#008980;
+	color:#ffffff;
+	}
+.slicknav_nav .slicknav_collapsed a:hover span{
+display:none;
+}
+.slicknav_nav .slicknav_collapsed a:hover{
+	background:#008980 url(http://www.computerrecyclingsf.com/images/right-side-white-arrow.png) 15px center no-repeat;
+	color:#ffffff;
+}

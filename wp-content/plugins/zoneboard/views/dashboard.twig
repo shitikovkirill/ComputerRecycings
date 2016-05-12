@@ -1,0 +1,45 @@
+<link rel='stylesheet' href='{{stylesheet}}' type='text/css' media='all' />
+	<div class="logo-banner">
+		<img src="{{logo_url}}" />
+	</div>
+<div class="wrap">
+	<h2>{{site.name}} Zoneboard</h2>
+	<div class= "intro-line"><h3>{{message}}</h3></div>
+
+	<ul class="dashboard-grid">
+		{% for brick in bricks %}
+
+		<li class="dashboard-panel">
+
+			<div class="dashboard-brick">
+				<div class="panel-content">
+
+					<div class="icon"><i class="icon {{brick.icon.class}} {{brick.icon.slug}}"></i> </div>
+
+			   <div class="panel-headline"> {{brick.label}}</div>
+				<div class="inpanel-links" >
+					{% if brick.callback %}
+						{{function(brick.callback)}}
+					{% endif %}
+					<ul>
+						{% for link in brick.links %}
+							{% if '{{' in link.url %}
+								<li><i class="bullet-square fa fa-circle"></i><a class="control-links" href="{{include(template_from_string(link.url))}}">{{link.label}}</a></li>
+							{% else %}
+								<li><i class="bullet-square fa fa-circle"></i><a class="control-links" href="{{link.url}}">{{link.label}}</a></li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			</div>
+
+
+		</li>
+
+
+		{% endfor %}
+
+	</ul>
+</div>
+
