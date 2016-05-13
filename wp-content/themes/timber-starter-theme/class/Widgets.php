@@ -16,23 +16,20 @@ class Widgets
     }
     public function add_widgets(){
         register_sidebar( array(
-            'name' => 'Text content on home page (right)',
-            'id' => 'home-page-right',
-            'class'=>'',
-            'description' => 'Appears in home page (right)',
-            'before_widget' => '',
-            'after_widget' => '',
+            'name' => 'Home right sidebar',
+            'id' => 'home_right',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
             'before_title' => '<h1>',
             'after_title' => '</h1>',
         ) );
 
+
         register_sidebar( array(
-            'name' => 'Text content on home page (left)',
-            'id' => 'home-page',
-            'class'=>'',
-            'description' => 'Appears in home page',
-            'before_widget' => '',
-            'after_widget' => '',
+            'name' => 'Home left sidebar',
+            'id' => 'home_left',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
             'before_title' => '<h1>',
             'after_title' => '</h1>',
         ) );

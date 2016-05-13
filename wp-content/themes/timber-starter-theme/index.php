@@ -21,10 +21,10 @@ $context = Timber::get_context();
 $context['home_img_posts'] = Timber::get_posts(array( 'category_name' => 'home_img' ));
 $context['img_url'] =	get_template_directory_uri().'/assets';
 
-$context['home_widget_left'] = Timber::get_widgets('home-page');
-$content['home_widget_right'] = Timber::get_widgets('home-page-right');
+$context['home_widget_left'] = Timber::get_widgets('home_left');
+$content['home_widget_right'] = Timber::get_widgets('home_right');
 
-//echo '<pre>';print_r($context['test']);die;
+echo '<pre>';print_r($context['home_left']);die;
 
 $templates = array( 'index.twig' );
 if ( is_home() ) {
