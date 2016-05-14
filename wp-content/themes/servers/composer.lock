@@ -1,0 +1,293 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "574a5b425693c64c13ca25dcbfe09f7d",
+    "content-hash": "a81205030c0944ab6e74d07950939ca1",
+    "packages": [
+        {
+            "name": "amostajo/lightweight-mvc",
+            "version": "v1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amostajo/lightweight-mvc.git",
+                "reference": "5a114cc8bda3cee64800e85bcd925d564233bd01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amostajo/lightweight-mvc/zipball/5a114cc8bda3cee64800e85bcd925d564233bd01",
+                "reference": "5a114cc8bda3cee64800e85bcd925d564233bd01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Amostajo\\LightweightMVC\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alejandro Mostajo",
+                    "email": "amostajo@gmail.com"
+                }
+            ],
+            "description": "A light weight (small) MVC framework for Wordpress plugins and themes.",
+            "keywords": [
+                "light",
+                "lightweight",
+                "mvc",
+                "wordpress"
+            ],
+            "time": "2016-04-21 19:26:26"
+        },
+        {
+            "name": "amostajo/phpfastcache",
+            "version": "3.0.161",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amostajo/phpfastcache.git",
+                "reference": "761243ad3339babf9624374c1002ce1c5f664707"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amostajo/phpfastcache/zipball/761243ad3339babf9624374c1002ce1c5f664707",
+                "reference": "761243ad3339babf9624374c1002ce1c5f664707",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.1.0"
+            },
+            "require-dev": {
+                "katzgrau/klogger": "dev-master",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/lib/functions.php"
+                ],
+                "psr-4": {
+                    "PHPFastCache\\": "src/psr4"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Khoa Bui",
+                    "email": "khoaofgod@gmail.com",
+                    "homepage": "http://www.phpfastcache.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fork from original phpfastcache to autoload with PSR-4",
+            "homepage": "http://www.phpfastcache.com",
+            "keywords": [
+                "cache"
+            ],
+            "time": "2015-11-03 17:17:37"
+        },
+        {
+            "name": "amostajo/wordpress-plugin-core",
+            "version": "v1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amostajo/wordpress-plugin-core.git",
+                "reference": "d10310e54582ffb3f067b68cd17779e7b2e316eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amostajo/wordpress-plugin-core/zipball/d10310e54582ffb3f067b68cd17779e7b2e316eb",
+                "reference": "d10310e54582ffb3f067b68cd17779e7b2e316eb",
+                "shasum": ""
+            },
+            "require": {
+                "amostajo/lightweight-mvc": "1.0.*",
+                "amostajo/phpfastcache": "^3.0",
+                "katzgrau/klogger": "dev-master",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/lib/functions.php"
+                ],
+                "psr-4": {
+                    "Amostajo\\WPPluginCore\\": "src/psr4"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alejandro Mostajo",
+                    "email": "amostajo@gmail.com"
+                }
+            ],
+            "description": "Core functionality and libraries for Wordpress Plugin (a light weight plugin template with composer and MVC).",
+            "keywords": [
+                "code",
+                "plugin",
+                "wordpress",
+                "wordpress plugin"
+            ],
+            "time": "2016-04-21 22:37:14"
+        },
+        {
+            "name": "katzgrau/klogger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/katzgrau/KLogger.git",
+                "reference": "87735262be7c3bd210740b5cd4831dee3d827c46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/katzgrau/KLogger/zipball/87735262be7c3bd210740b5cd4831dee3d827c46",
+                "reference": "87735262be7c3bd210740b5cd4831dee3d827c46",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "psr/log": "1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Katzgrau\\KLogger\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kenny Katzgrau",
+                    "email": "katzgrau@gmail.com"
+                },
+                {
+                    "name": "Dan Horrigan",
+                    "email": "dan@dhorrigan.com"
+                }
+            ],
+            "description": "A Simple Logging Class",
+            "keywords": [
+                "logging"
+            ],
+            "time": "2015-11-04 22:43:22"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "scribu/scb-framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scribu/wp-scb-framework.git",
+                "reference": "95b23ac342fce16bf5eb8d939ac5a361b94b104b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scribu/wp-scb-framework/zipball/95b23ac342fce16bf5eb8d939ac5a361b94b104b",
+                "reference": "95b23ac342fce16bf5eb8d939ac5a361b94b104b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "."
+                ],
+                "files": [
+                    "load-composer.php",
+                    "Util.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Cristi Burcă",
+                    "homepage": "http://scribu.net/"
+                }
+            ],
+            "description": "A set of useful classes for faster plugin development",
+            "homepage": "https://github.com/scribu/wp-scb-framework",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2015-10-25 20:19:41"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "scribu/scb-framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.4.0"
+    },
+    "platform-dev": []
+}

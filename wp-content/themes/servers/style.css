@@ -1,0 +1,20 @@
+/*
+ * Theme Name: Server
+ * Description: Starter Theme to use with Timber
+ * Author: Upstatement and YOU!
+*/
+.index_body_top{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 300px;
+    flex-grow: 2;
+    flex-wrap: wrap;
+}
+
+.index_body_topbox:nth-child(4n){
+    margin-right: 0;
+}
+
+.index_body_topbox{
+    flex: 2 1 276px;
+}
