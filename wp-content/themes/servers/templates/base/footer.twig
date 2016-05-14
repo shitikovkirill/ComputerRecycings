@@ -1,26 +1,12 @@
 <div class="footer_top_con">
     <div class="footer_top_menu">
-        <ul>
-            <li><a href="http://www.computerrecyclingsf.com/process.html">Our Process</a></li>
-            <li><a href="http://www.computerrecyclingsf.com/services.html">Services</a></li>
-            <li><a href="http://www.computerrecyclingsf.com/compliance.html">Compliance</a></li>
-            <li><a href="http://www.computerrecyclingsf.com/solutions.html">Solutions</a></li>
-            <li><a href="http://www.computerrecyclingsf.com/website-terms.html" rel="nofollow">Website Terms</a></li>
-            <li><a href="http://www.computerrecyclingsf.com/privacy-policy.html" rel="nofollow">Privacy Policy</a></li>
-        </ul>
+        {% include "menu_footer_top.twig" with {'menu': menu_footer_top.get_items} %}
         <div class="spacer"></div>
     </div>
 </div>
 <div class="footer_mid_con">
     <div class="footer_mid">
-        <ul>
-            <li><a href="http://www.iso.org/iso/home/standards/management-standards/iso14000.htm" rel="nofollow" target="_blank"><img src="{{ img_url }}/images/iso14000.png" alt="ISO 14000 - Environmental management" /></a></li>
-            <li><a href="http://www.isri.org" rel="nofollow" target="_blank"><img src="{{ img_url }}/images/isri.png" alt="(ISRI) Institute of Scrap Recycling Industries Inc." /></a></li>
-            <li><a href="http://www.naidonline.org" rel="nofollow" target="_blank"><img src="{{ img_url }}/images/naid.png" alt="(NAID) National Association for Information Destruction" /></a></li>
-            <li><a href="http://www.r2solutions.org" rel="nofollow" target="_blank"><img src="{{ img_url }}/images/r2solutions.png" alt="R2 Solutions" /></a></li>
-            <li><a href="http://electronicsrecycling.org" rel="nofollow" target="_blank"><img src="{{ img_url }}/images/ncer.png" alt="National Center for Electronics Recycling" /></a></li>
-            <li><a href="http://www.epa.gov/osw/conserve/smm/wastewise/index.htm" rel="nofollow" target="_blank"><img src="{{ img_url }}/images/wastewise.png" alt="EPA WasteWise Program - Conserving Resources, Preventing Waste" /></a></li>
-        </ul>
+        {% include "menu_footer_mid.twig" with {'menu': menu_footer_mid.get_items} %}
         <div class="spacer"></div>
     </div>
 </div>
