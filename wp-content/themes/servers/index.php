@@ -19,7 +19,6 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 $context = Timber::get_context();
 $context['home_img_posts'] = Timber::get_posts(array( 'category_name' => 'home_img' ));
-$context['img_url'] =	get_template_directory_uri().'/assets';
 
 $context['home_left'] 			= Timber::get_widgets('home_left');
 $context['home_right'] 			= Timber::get_widgets('home_right');

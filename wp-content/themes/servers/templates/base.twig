@@ -5,55 +5,18 @@
 	{% endblock %}
 	</head>
 {% endblock %}
+
 <body class="{{body_class}}">
 <div itemscope itemtype="http://schema.org/LocalBusiness" id="wrapper">
-	<div id="mob_menu">
-		{% include 'base/mob_menu.twig' %}
-	</div>
-	<!--Start Header-->
-	<header>
-		<div class="heared">
-			{% include 'base/header.twig' %}
-		</div>
-	</header>
-	<!--End Header-->
-	<!--Start Menu-->
-	<nav>
-		<div class="menu_con">
-			{% include 'base/menu_con.twig' %}
-		</div>
-	</nav>
-	<!--End menu-->
 
-	<div class="ph_slidediv">
-		<h3><a href="tel:4153668120">Click to Call: (415) 366-8120</a></h3>
-	</div>
+	{% include 'base/header/index.twig' %}
 
-	<!--Start slider-->
-	<section class="slider_con">
-		{% include 'base/slider_con.twig' %}
-	</section>
-	<!--End Slader-->
-	<!--Start indax body Slader-->
-	{% block content %}
-		<section class="index_body_con">
-				Sorry, no content
-		</section>
+	{% block body_content %}
+		{% include 'base/content/index.twig' %}
 	{% endblock %}
-	<!--End indax body Slader-->
-	<!--Start footer Mob Menu-->
-	<section>
-		<div class="footer_mob_menu_con">
-			{% include 'base/footer_mob.twig' %}
-		</div>
-	</section>
-	<!--End footer Mob Menu-->
-	<!--Start Footer-->
-	<footer>
-		{% include 'base/footer.twig' %}
-	</footer>
-	<!--End Footer-->
-	{{ function('wp_footer') }}
+
+	{% include 'base/footer/index.twig' %}
+
 </div>
 </body>
 </html>

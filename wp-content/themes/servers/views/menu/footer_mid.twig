@@ -1,0 +1,8 @@
+<ul>
+    {% for item in menu %}
+        <li class="{{item.classes | join(' ')}}">
+            <a href="{{item.get_link}}"><img alt="{{item.title}}" src="{{ item.menu_object.thumbnail.src|resize(120, 64) }}"></a>
+            {% include "menu/footer_mid.twig" with {'menu': item.get_children} %}
+        </li>
+    {% endfor %}
+</ul>

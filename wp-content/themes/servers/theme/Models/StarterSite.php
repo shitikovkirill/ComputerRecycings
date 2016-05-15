@@ -15,19 +15,20 @@ class StarterSite extends TimberSite {
     function add_to_context( $context ) {
         $context['menu_footer_top'] = new TimberMenu("Menu footer top");
         $context['menu_footer_mid'] = new TimberMenu("Menu footer mid");
+        $context['img_url'] =	get_template_directory_uri().'/assets';
         $context['site'] = $this;
         return $context;
     }
 
-    function myfoo( $text ) {
-        $text .= ' bar!';
+    function assets( $text ) {
+        $text .= get_template_directory_uri().'/assets'.$text;
         return $text;
     }
 
     function add_to_twig( $twig ) {
         /* this is where you can add your own fuctions to twig */
         $twig->addExtension( new Twig_Extension_StringLoader() );
-        $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+        $twig->addFilter('assets', new Twig_SimpleFilter('assets', array($this, 'assets')));
         return $twig;
     }
 
