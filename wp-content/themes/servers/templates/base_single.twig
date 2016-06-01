@@ -1,9 +1,23 @@
 {% extends "base.twig" %}
 
-{% block slider_con %}
-        {% include 'base/content_hed_con.twig' with {'title':post.title, 'area': 'ffff'} %}
+{% block slider %}
+        {% include 'single/slider.twig' with {'title':post.title, 'area': 'ffff'} %}
 {% endblock %}
 
 {% block body_content %}
-
+    <section class="content_body_con">
+        <div class="content_body">
+            {% include "single/breadcrumbs.twig" %}
+            <div class="cont_bdy_area">
+                {% include "single/left-menu.twig" %}
+                <div class="cont_bdy_midcon">
+                    {% block content %}
+                        Empty
+                    {% endblock %}
+                </div>
+                {% include "single/right-menu.twig" %}
+                <div class="spacer"></div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
