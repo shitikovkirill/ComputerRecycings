@@ -15,6 +15,8 @@ class StarterSite extends TimberSite {
     function add_to_context( $context ) {
         $context['menu_footer_top'] = new TimberMenu("Menu footer top");
         $context['menu_footer_mid'] = new TimberMenu("Menu footer mid");
+        $context['menu_header'] = new TimberMenu("Header");
+
         $context['img_url'] =	get_template_directory_uri().'/assets';
         $context['site'] = $this;
         return $context;

@@ -14,7 +14,7 @@
 
 		{% include 'base/header/header.twig' %}
 
-		{% include 'base/header/menu.twig' %}
+		{% include 'base/header/menu.twig' with { 'menu': menu_header.get_items } %}
 
 		<div class="ph_slidediv">
 			<h3><a href="tel:4153668120">Click to Call: (415) 366-8120</a></h3>

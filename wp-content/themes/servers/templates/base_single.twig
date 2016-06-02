@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block slider %}
-        {% include 'single/slider.twig' with {'title':post.title, 'area': 'ffff'} %}
+        {% include 'single/slider.twig' with {'title':post.title, 'area': post.area} %}
 {% endblock %}
 
 {% block body_content %}
@@ -14,6 +14,7 @@
                     {% block content %}
                         Empty
                     {% endblock %}
+                    {% include "single/form.twig" %}
                 </div>
                 {% include "single/right-menu.twig" %}
                 <div class="spacer"></div>

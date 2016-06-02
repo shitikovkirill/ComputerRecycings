@@ -3,112 +3,27 @@
     <div class="menu_con">
         <div class="menu">
             <ul>
-                <li><a id="a1" href="javascript:void(0);" onClick="opensesame('d1', 'a1');">Services</a></li>
-                <li><a id="a2" href="javascript:void(0);" onClick="opensesame('d2', 'a2');">Solutions</a></li>
-                <li><a id="a4" href="javascript:void(0);" onClick="opensesame('d4', 'a4');">Our Process</a></li>
-                <li><a id="a5" href="javascript:void(0);" onClick="opensesame('d5', 'a5');">Compliance</a></li>
-                <li><a id="a7" href="javascript:void(0);" onClick="opensesame('d7', 'a7');">About Us</a></li>
+                {% for item in menu %}
+                    <li>
+                        <a id="a{{ loop.index }}" href="javascript:void(0);" onClick="opensesame('d{{ loop.index }}', 'a{{ loop.index }}');">
+                            {{item.title}}</a>
+                    </li>
+                {% endfor %}
             </ul>
             <div class="spacer"></div>
         </div>
         <div class="submenu_con" id="maincontainer">
-            <div class="submenu abc" id="d1">
-                <div class="submenu_top">
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/services/e-waste-recycling-sf-bay.html">E-Waste Recycling</a></h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/e-waste-recycling-process-sf-bay.html">E-Waste Recycling Process</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/responsible-e-waste-recycling-company-sf-bay.html">Responsible Recycling</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/e-waste-purchasing-sf-bay.html">E-scrap Purchasing</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/choosing-e-waste-recycler-sf-bay.html">Choosing a Recycler</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/e-waste-pickup-request-sf-bay.html">E-Waste Pickup Request</a></li>
-                        </ul>
+            {% for item in menu %}
+                <div class="submenu abc" id="d{{ loop.index }}">
+                    <div class="submenu_top">
+                        {% if item.get_children %}
+                            {% include "base/header/menu_level2.twig" with { 'menu': item.get_children } %}
+                        {% endif %}
+                        <div class="spacer"></div>
                     </div>
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/services/it-asset-disposition-sf-bay.html">IT Asset Disposition</h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/it-asset-disposition/itad-process-sf-bay.html"> Certified ITAD Process</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/it-asset-disposition/itad-processing-sf-bay.html"> ITAD Processing & Recycling</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/services/it-asset-recovery-remarketing-sf-bay.html">IT Asset Recovery</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/it-asset-disposition/lease-returns-sf-bay.html">Lease Returns</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/it-asset-disposition/evaluation-sf-bay.html">IT Asset Evaluation Request</a></li>
-                        </ul>
-                    </div>
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/services/digital-data-destruction-sf-bay.html">Digital Data Destruction</h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/data-destruction/process-sf-bay.html">Data Destruction Process</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/data-destruction/methods.html">Data Destruction Methods</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/data-destruction/on-site-sf-bay.html">On-site Data Destruction</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/data-destruction/data-erasure-sf-bay.html">Data Erasure Services</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/data-destruction/degaussing-sf-bay.html">Data Degaussing</a></li>
-                        </ul>
-                    </div>
-                    <div class="spacer"></div>
+                    <div class="submenu_bottom"><a href="javascript:void(0);" onClick="closesesame();"><img src="{{ img_url }}/images/menu_close_arrow.png" alt="Close Computer Recycling Services Menu"  /></a></div>
                 </div>
-                <div class="submenu_bottom"><a href="javascript:void(0);" onClick="closesesame();"><img src="{{ img_url }}/images/menu_close_arrow.png" alt="Close Computer Recycling Services Menu"  /></a></div>
-            </div>
-            <div class="submenu abc" id="d2">
-                <div class="submenu_top">
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/solutions.html">Business Solutions by Type</h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/solutions/corporate-electronics-recycling-sf-bay.html">Corporations</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/solutions/municipality-electronics-recycling-sf-bay.html">Municipalities / Government</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/solutions/non-profit-electronics-recycling-sf-bay.html">Non-Profit Organizations</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/solutions/manufacturer-electronics-recycling-sf-bay.html">OEM Manufacturers</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/solutions/small-business-electronics-recycling-sf-bay.html">Small Businesses</a></li>
-                        </ul>
-                    </div>
-                    <div class="spacer"></div>
-                </div>
-                <div class="submenu_bottom"><a href="javascript:void(0);" onClick="closesesame();"><img src="{{ img_url }}/images/menu_close_arrow.png" alt="Close E-Recycling Solutions Menu"  /></a></div>
-            </div>
-            <div class="submenu abc" id="d4">
-                <div class="submenu_top">
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/process.html">Our Process</h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/process/asset-auditing-reporting.html">Auditing & Reporting</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/process/reverse-logistics.html">Reverse Logistics</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/process/chain-of-custody.html">Chain of Custody</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/process/risk-management.html">Risk Management</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/process/where-does-our-e-waste-go.html">Where Does Our E-Waste Go</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/process/faqs.html">Frequently Asked Questions</a></li>
-                        </ul>
-                    </div>
-                    <div class="spacer"></div>
-                </div>
-                <div class="submenu_bottom"><a href="javascript:void(0);" onClick="closesesame();"><img src="{{ img_url }}/images/menu_close_arrow.png" alt="Close E-Recycling Process Menu"  /></a></div>
-            </div>
-            <div class="submenu abc" id="d5">
-                <div class="submenu_top">
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/compliance.html">Environmental Compliance</h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/compliance/certifications.html">Certifications & Affiliations</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/compliance/liability-protection.html">Liability Protection</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/compliance/responsible-e-waste-recycler.html">Responsible e-Waste Recycler</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/compliance/e-waste-concerns.html">E-Waste Concerns</a></li>
-                        </ul>
-                    </div>
-                    <div class="spacer"></div>
-                </div>
-                <div class="submenu_bottom"><a href="javascript:void(0);" onClick="closesesame();"><img src="{{ img_url }}/images/menu_close_arrow.png" alt="Close E-Waste Environmental Compliance Menu"  /></a></div>
-            </div>
-            <div class="submenu abc" id="d7">
-                <div class="submenu_top">
-                    <div class="submenu_top_box">
-                        <h2><a href="http://www.computerrecyclingsf.com/e-recycling-company-san-francisco-bay.html">About Us</h2>
-                        <ul>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/why-to-choose-us.html" rel="nofollow">Why to Choose NC</a></li>
-                            <li><a href="http://www.computerrecyclingsf.com/e-recycling/contact-us.html" rel="nofollow">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="spacer"></div>
-                </div>
-                <div class="submenu_bottom"><a href="javascript:void(0);" onClick="closesesame();"><img src="{{ img_url }}/images/menu_close_arrow.png" alt=""  /></a></div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </nav>
