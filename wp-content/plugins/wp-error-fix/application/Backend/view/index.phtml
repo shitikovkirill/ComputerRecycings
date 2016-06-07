@@ -1,0 +1,439 @@
+<?php 
+    if (!defined('ERRORFIX_KEY')) { exit; } 
+
+    $settings = ErrorFix_Core_Option::getSettings();
+?>
+
+<div class="wrap">
+    <div class="row no-margin notification-container<?php echo (ErrorFix_Core_Console::hasIssues() ? '' : ' hidden') ?>">
+        <div class="col-xs-12">
+            <div class="row notification">
+                <div class="col-xs-4 col-md-2 notification-icon">
+                    <i class="icon-block"></i>
+                </div>
+                <div class="col-xs-8 col-md-10 notification-content">
+                    <ul class="error-list">
+                        <?php foreach (ErrorFix_Core_Console::getWarnings() as $message) { ?>
+                            <li><?php echo $message; ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <div class="metabox-holder">
+                <div id="metabox-main" class="postbox">
+                    <div class="inside">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab"><i class="icon-list"></i> <?php echo __('Error List', ERRORFIX_KEY); ?></a></li>
+                            <li role="presentation"><a href="#piegraph" aria-controls="piegraph" role="tab" data-toggle="tab"><i class="icon-chart-pie"></i> <?php echo __('Pie Graph', ERRORFIX_KEY); ?></a></li>
+                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><i class="icon-cog-alt"></i> <?php echo __('Settings', ERRORFIX_KEY); ?></a></li>
+                            <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab"><i class="icon-info"></i> <?php echo __('About', ERRORFIX_KEY); ?></a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="list">
+                                <table id="error-list" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:75%;"><?php echo __('Message', ERRORFIX_KEY); ?></th>
+                                            <th><?php echo __('Occured (#)', ERRORFIX_KEY); ?></th>
+                                            <th>Module - Internal</th>
+                                            <th>Fix ID - Internal</th>
+                                            <th>Status - Internal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="piegraph">
+                                <div class="graph-container">
+                                    <i class="icon-spin4 animate-spin graph-loading" id="graph-pie-loader"></i>
+                                    <div id="graph-pie"></div>
+                                    <div class="ahm-graph-empty hidden">
+                                        <i class="icon-block text-muted"></i>
+                                        <h1 class="text-muted"><?php echo __('Error log is empty', ERRORFIX_KEY); ?></h1>
+                                    </div>
+                                </div>
+                                <div class="graph-description">
+                                    <?php echo __('All the errors grouped by plugins or themes that caused them.', ERRORFIX_KEY); ?>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                <div class="settings-container">
+                                    <table class="table table-striped table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td width="60%">
+                                                    <h4>Send Email On Error</h4>
+                                                    <p>When website has new error or errors detected, notify me about it via email.</p>
+                                                </td>
+                                                <td class="text-center">
+                                                    <input data-toggle="toggle" data-on="<?php echo __('Enabled', ERRORFIX_KEY); ?>" data-off="<?php echo __('Disabled', ERRORFIX_KEY); ?>" type="checkbox" name="error-notification" <?php echo (empty($settings['error-notification']) ? '' : 'checked'); ?> />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>Send Email When Fix Is Available</h4>
+                                                    <p>When there is a fix for your errors, notify me about it via email. <b>Please notice.</b> This feature work only when Error Fix is activated.</p>
+                                                </td>
+                                                <td class="text-center">
+                                                    <input data-toggle="toggle" data-on="<?php echo __('Enabled', ERRORFIX_KEY); ?>" data-off="<?php echo __('Disabled', ERRORFIX_KEY); ?>" type="checkbox" name="fix-notification" <?php echo (empty($settings['fix-notification']) ? '' : 'checked'); ?> />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>Email Address</h4>
+                                                    <p>Provide email address that can be used to notify you about new errors or available fixes.</p>
+                                                </td>
+                                                <td>
+                                                    <input type="email" class="form-control" placeholder="Email Address" value="<?php echo (empty($settings['email']) ? '' : $settings['email']); ?>" name="email" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="about">
+                                <div class="about-container">
+                                    <p class="notification">
+                                        WP Error Fix protects your image and website security. Now you can be sure you 
+                                        make the best impression on your website visitors (no more error messages!) 
+                                        and have peace in mind that your website is safe and secure... all without the 
+                                        need for a developer!<br/>
+                                        There are NO monthly or hidden fees. You DO NOT share any private information 
+                                        with us (like FTP or admin credentials). You pay only small amount for fixes
+                                        that you select.
+                                    </p>
+
+                                    <h4>How does ErrorFix work?</h4>
+                                    <p>
+                                        WP Error Fix constantly monitors your website for new errors that triggered by any plugin, theme or WordPress itself. 
+                                        When error occurs and Error Fix is activated, we get notified about it and solve the error specifically for your website.
+                                        When the fix is available for download, your website will be notified about it.
+                                    </p>
+
+                                    <h4>What information is shared with us?</h4>
+                                    <p>
+                                        In order for us to analyze and resolve the PHP errors on you website, we have to know the following information: error type, message, file and line. 
+                                        In some cases we would have to obtain a software from your website that caused an error (this procedure is done remotely without your assistance).
+                                        No other personal or private information is disclosed.
+                                    </p>
+
+                                    <h4>What is a fix?</h4>
+                                    <p>
+                                        When error is reported, we review it and if there is a way to resolve it programmatically, we provide a fix. 
+                                        When you apply the fix to your website, Error Fix automatically backups the original file and overwrite it with the fix.
+                                        All the backup files can be found in <strong>wp-content/errorfix</strong> directory, grouped by day.
+                                    </p>
+
+                                    <h4>Does ErrorFix resolve all errors?</h4>
+                                    <p>
+                                        ErrorFix may resolve only PHP errors that are listed on the Error Fix page and only errors that can be fixed programmatically.
+                                    </p>
+
+                                    <h4>How to contact us?</h4>
+                                    <p>
+                                        In case or any questions or concerns feel free to contact us via email <a href="mailto:vasyl@vasyltech.com">vasyl@vasyltech.com</a>.
+                                        <?php echo (ErrorFix_Core_Option::getId() ? 'Please use this number <small><strong>' . ErrorFix_Core_Option::getId() . '</strong></small> as a reference to your website.' : ''); ?>
+                                    </p>
+
+                                    <ul class="social">
+                                        <li><a href="vasyltech.com" target="_blank"><i class="icon-home"></i></a></li>
+                                        <li><a href="https://wordpress.org/support/view/plugin-reviews/wp-error-fix" target="_blank"><i class="icon-star"></i></a></li>
+                                        <li><a href="https://twitter.com/vasyltech" target="_blank"><i class="icon-twitter"></i></a></li>
+                                        <li><a href="https://www.facebook.com/vasyltech" target="_blank"><i class="icon-facebook"></i></a></li>
+                                        <li><a href="https://github.com/VasylTech" target="_blank"><i class="icon-github"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <?php if (ErrorFix_Core_Option::getActive()) { ?>
+                <div class="metabox-holder">
+                    <div class="postbox">
+                        <h3 class="hndle"><span><?php echo __('Current Balance', ERRORFIX_KEY); ?></span></h3>
+                        <div class="inside">
+                            <div class="sidebar-content">
+                                <?php if (ErrorFix_Core_Option::getVip()) { ?>
+                                    <span class="vip"><i class="icon-award"></i> VIP</span>
+                                <?php } else { ?>
+                                    <?php $balance = sprintf('%01.2f', ErrorFix_Core_Option::getBalance()); ?>
+                                    <span class="balance" data-balance="<?php echo $balance; ?>">$ <?php echo $balance; ?> <small>USD</small></span>
+                                    <div class="minor-table">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <a href="#add-credit-modal" class="btn btn-primary btn-block" data-toggle="modal">
+                                                    <i class="icon-dollar"></i> <?php echo __('Add Credit', ERRORFIX_KEY); ?>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <a href="#high-priority-modal" class="btn btn-warning btn-block" data-toggle="modal">
+                                                    <i class="icon-award"></i> <?php echo __('365 Support', ERRORFIX_KEY); ?>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade" tabindex="-1" role="dialog" id="add-credit-modal">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">Add Credit</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="payment-form">
+                                                        <input type="hidden" name="cmd" value="_s-xclick" />
+                                                        <input type="hidden" name="hosted_button_id" value="QTPK4KB3RW72L" />
+                                                        <input type="hidden" name="custom" value="<?php echo ErrorFix_Core_Option::getId(); ?>" />
+
+                                                        <div class="form-group">
+                                                            <label for="amount">Select your amount:</label>
+                                                            <select name="os0" class="form-control balance-topup">
+                                                                <option value="$5 USD">$5.00 USD</option>
+                                                                <option value="$10 USD" selected>$10.00 USD</option>
+                                                                <option value="$20 USD">$20.00 USD</option>
+                                                            </select>
+                                                            <span class="help-block">
+                                                                <i class="icon-cc-paypal"></i>
+                                                                <i class="icon-cc-mastercard"></i>
+                                                                <i class="icon-cc-visa"></i>
+                                                                <i class="icon-cc-discover"></i>
+                                                                <i class="icon-cc-amex"></i>
+                                                            </span>
+                                                        </div>
+
+                                                        <p class="text-asterix">
+                                                            <?php echo $this->preparePhrase('[*] PayPal is used to process the payment. Your balance is not refundable but may be transfered to other website upon request.', 'strong'); ?>
+                                                        </p>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary btn-success" id="submit-payment">Add Credit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade" tabindex="-1" role="dialog" id="high-priority-modal">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">365 Support</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-larger">Get a full year service for just a <strong>10 cents</strong> a day. Reported errors will be resolved automatically when fixes are available.</p>
+                                                    <p class="text-asterix">
+                                                        <?php echo $this->preparePhrase('[*] Some of the errors may not be solved programatically. We will capture the email address that is used during the purchase to contact you if necessary.', 'strong'); ?>
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=52QCUR8M369F8&custom=<?php echo ErrorFix_Core_Option::getId(); ?>" target="_blank" class="btn btn-primary btn-success">Purchase</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metabox-holder">
+                    <div class="postbox">
+                        <div class="inside">
+                            <a href="#send-message-modal" data-toggle="modal" class="btn btn-success btn-block"><i class="icon-mail-alt"></i> Contact Us</a>
+                            <div class="modal fade" tabindex="-1" data-backdrop="static" role="dialog" id="send-message-modal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="contact-fullname">Full Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="contact-fullname" placeholder="Enter your name" value="<?php echo (empty($settings['contactFullname']) ? '' : $settings['contactFullname']); ?>" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contact-email">Email Address <span class="text-danger">*</span></label>
+                                                <input type="email" class="form-control" id="contact-email" placeholder="Enter your email" value="<?php echo (empty($settings['contactEmail']) ? '' : $settings['contactEmail']); ?>" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contact-message">Message <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" id="contact-message" placeholder="How can we help you?" rows="5"></textarea>
+                                                <span class="help-block">We speak English, Russian, Ukrainian and Polish. Message on any other language may delay our response.</span>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary btn-success" id="send-message">Send Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+
+            <div class="metabox-holder">
+                <div class="postbox">
+                    <div class="inside">
+                        <?php if (ErrorFix_Core_Option::getActive()) { ?>
+                            <?php $rejected = ErrorFix_Storage::getInstance()->getRejectedList(); ?>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#resolved" aria-controls="resolved" role="tab" data-toggle="tab"><?php echo __('Available Fixes', ERRORFIX_KEY); ?></a></li>
+                                <?php if (!empty($rejected)) { ?>
+                                    <li role="presentation"><a href="#rejected" aria-controls="rejected" role="tab" data-toggle="tab"><?php echo __('Rejected', ERRORFIX_KEY); ?> <span class="badge badge-rejected"><?php echo count($rejected); ?></span></a></li>
+                                <?php } ?>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="resolved">
+                                    <?php if (ErrorFix_Core_Option::getVip()) { ?>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <p class="vip-message">As the high priority customer, all the errors will be resolved automatically.</p>
+                                            </div>
+                                        </div>
+                                    <?php } else { ?>
+                                        <table id="patch-list" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID - Internal</th>
+                                                    <th>Selected - Internal</th>
+                                                    <th width="40%"><?php echo __('Fix Errors'); ?></th>
+                                                    <th><?php echo __('Price'); ?></th>
+                                                    <th><?php echo __('Select'); ?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody/>
+                                            <tfoot id="patch-footer" style="display: none;">
+                                                <tr>
+                                                    <th class="text-right" colspan="4"></th>
+                                                    <th><small><a href="#" id="select-all-fixes">Select All</a></small></th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-right" colspan="4">Total:</th>
+                                                    <td id="total-cost" data-total="0.00">$ 0.00 <small>USD</small></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <a href="#" class="btn btn-success btn-block btn-sm" id="apply-fixes" disabled style="display: none;">
+                                            <?php echo __('Apply Fixes', ERRORFIX_KEY); ?>
+                                        </a>
+                                        <a href="#check-modal" data-toggle="modal" class="btn btn-primary btn-block btn-sm" id="manual-check" style="display: none;">
+                                            <i class="icon-arrows-cw"></i> <?php echo __('Check For Available Fixes', ERRORFIX_KEY); ?>
+                                        </a>
+
+                                        <div class="modal fade" tabindex="-1" role="dialog" id="apply-modal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">Apply Fixes</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="apply-step step-one">
+                                                            <p>You are about to apply <strong id="fix-count"></strong> with the total cost of <strong id="fix-total-cost"></strong>. Click the <strong class="text-success">Apply</strong> button below to confirm.</p>
+                                                        </div>
+                                                        <div class="apply-step step-two">
+                                                            <ul class="apply-progress"></ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary btn-success" id="confirm-apply">Apply</button>
+                                                        <button type="button" class="btn btn-primary btn-success" data-dismiss="modal" id="complete" style="display: none;">Complete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" id="check-modal">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel">Check For Available Fixes</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p class="notification">Please wait. It may take a few seconds.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="rejected">
+                                    <table id="rejected-list" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th width="60%"><?php echo __('Rejected Errors'); ?></th>
+                                                <th><?php echo __('Reason'); ?></th>
+                                                <th><?php echo __('Code'); ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody/>
+                                    </table>
+                                    <div class="modal fade" tabindex="-1" role="dialog" id="rejected-reason-modal">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Reason for rejection</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="rejection-message"></p>
+                                                    <p class="text-asterix"><strong>*</strong> You can contact us if you need more information about the reason for rejection. Please use <a href="mailto:vasyl@vasyltech.com">vasyl@vasyltech.com</a> email address or click the <strong class="text-warning">Ignore Errors</strong> button to remove errors from the list.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal" id="ignore-rejected">Ignore Errors</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } else { ?>
+                            <div class="row">
+                                <div class="col-xs-12 text-center">
+                                    <a href="#activation-modal" data-toggle="modal" class="btn btn-warning btn-lg" style="margin: 20px auto;"><?php echo __('Activate Error Check', ERRORFIX_KEY); ?></a>
+                                </div>
+                            </div>
+                            <div class="modal fade" tabindex="-1" role="dialog" id="activation-modal">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="activation-message text-center text-larger">Activate error check?</p>
+                                            <p class="text-asterix"><b>*</b> By activating the check you agree with <b>terms</b> mentioned under the <b>About</b> section.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary btn-success" id="activate-check">Activate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
