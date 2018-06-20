@@ -1,0 +1,22 @@
+version: "2"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: guitar_django
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python ./manage.py runserver 0.0.0.0:8000"
+    # For prod
+    #command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn handbook.wsgi -b 0.0.0.0:8000"
+    depends_on:
+      - "db"
+    volumes: 
+      - "./guitar_hub:/app"
+    environment:
+      DATABASE_URL: "postgres://postgres@db/postgres"
+    ports:
+      - "8000:8000"
+
+  db:
+    container_name: guitar_db
+    image: "postgres:latest"
