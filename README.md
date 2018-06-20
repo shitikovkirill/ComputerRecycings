@@ -1,4 +1,4 @@
-# GuitarDjango
+# Rental Django
 
 ### Install
 ```

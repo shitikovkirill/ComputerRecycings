@@ -1,5 +1,5 @@
 """
-WSGI config for guitar_hub project.
+WSGI config for rental project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "guitar_hub.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rental.settings")
 
 application = get_wsgi_application()
