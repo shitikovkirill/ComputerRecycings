@@ -24,7 +24,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'suit',
-    'redactor',
     'import_export',
 
     # Django Rest Framework
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'autorisation',
+    'rental',
 ]
 
 MIDDLEWARE = [
@@ -147,8 +147,11 @@ REST_FRAMEWORK = {
 SUIT_CONFIG = {
     'ADMIN_NAME': 'Rentals',
     'MENU': (
-        {'app': 'auth', 'label': 'Authentication',
-         'models': ('user', 'group'), 'icon': 'icon-lock'},
+        {
+            'app': 'auth', 'label': 'Authentication',
+            'models': ('user', 'group'), 'icon': 'icon-lock',
+            'rentals': ('rental', 'category'), 'icon': 'icon-lock',
+         },
     ),
     'LIST_PER_PAGE': 15
 }
@@ -158,9 +161,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-
-# Editor Redactor
-import time
-REDACTOR_OPTIONS = {'lang': 'en'}
-REDACTOR_UPLOAD = 'uploads/' + time.strftime("%Y/%m/%d/")
-REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
