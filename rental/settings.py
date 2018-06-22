@@ -145,7 +145,7 @@ REST_FRAMEWORK = {
 }
 
 SUIT_CONFIG = {
-    'ADMIN_NAME': 'Note handbook',
+    'ADMIN_NAME': 'Rentals',
     'MENU': (
         {'app': 'auth', 'label': 'Authentication',
          'models': ('user', 'group'), 'icon': 'icon-lock'},
