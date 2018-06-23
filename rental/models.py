@@ -16,5 +16,5 @@ class Rental(models.Model):
     city  = models.CharField(max_length=150)
     description = models.TextField(null=True)
     image = models.ImageField()
-    category = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category)
     bedrooms = models.IntegerField()
