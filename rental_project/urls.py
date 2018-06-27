@@ -19,7 +19,7 @@ from rest_framework.authtoken import views
 from rest_framework import routers
 from rental.views import *
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'rentals', RentalViewSet)
 router.register(r'categories', CategoryViewSet)
 
