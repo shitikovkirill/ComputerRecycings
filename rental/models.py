@@ -18,7 +18,7 @@ class Rental(models.Model):
     """
     title = models.CharField(max_length=150)
     owner = models.CharField(max_length=150)
-    city  = models.CharField(max_length=150)
+    city = models.CharField(max_length=150)
     description = models.TextField(null=True)
     image = models.ImageField()
     categories = models.ManyToManyField('Category')
