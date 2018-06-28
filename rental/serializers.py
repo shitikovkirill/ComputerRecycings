@@ -10,6 +10,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 
 class RentalSerializer(serializers.HyperlinkedModelSerializer):
     categories = CategorySerializer(many=True)
+
     class Meta:
         model = Rental
         fields = ('title', 'owner', 'city', 'description', 'image', 'categories', 'bedrooms', 'id')

@@ -15,6 +15,7 @@ class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('title',)
     list_per_page = 20
 
+
 class RentalResource(resources.ModelResource):
 
     class Meta:
@@ -25,6 +26,7 @@ class RentalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = RentalResource
     list_display = ('title', 'owner', 'city', 'image', )
     list_per_page = 20
+
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Rental, RentalAdmin)
