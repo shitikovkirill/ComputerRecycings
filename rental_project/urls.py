@@ -21,6 +21,9 @@ from rental.views import *
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'rentals', RentalViewSet)
 router.register(r'categories', CategoryViewSet)
+router.register(r'designs', DesignViewSet)
+router.register(r'periods', PeriodViewSet)
+router.register(r'district', DistrictViewSet)
 
 api_patterns = ([
     path('', include(router.urls)),

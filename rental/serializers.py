@@ -34,5 +34,5 @@ class RentalSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Rental
-        fields = ('title', 'storeys', 'bedrooms', 'total_square', 'residential_square', 'city', 'description',
+        fields = ('title', 'storeys', 'bedrooms', 'total_square', 'residential_square', 'description',
                   'image', 'categories', 'design', 'period', 'districts', 'id')

@@ -72,13 +72,12 @@ class Rental(models.Model):
     total_square = models.PositiveIntegerField(default=0, verbose_name='общая квадратура')
     residential_square = models.PositiveIntegerField(default=0, verbose_name='жилая квадратура')
 
-    city = models.CharField(max_length=150, verbose_name='город')
     description = models.TextField(null=True, verbose_name='описание')
 
     image = models.ImageField()
 
     categories = models.ManyToManyField('Category', verbose_name='категории')
-    design = models.ManyToManyField('Design', verbose_name='конструкции дома', null=True)
+    design = models.ManyToManyField('Design', verbose_name='конструкции дома')
 
     period = models.ForeignKey('Period', verbose_name='период постройки', null=True, on_delete=models.SET_NULL)
     districts = models.ForeignKey('District', verbose_name='район', null=True, on_delete=models.SET_NULL)

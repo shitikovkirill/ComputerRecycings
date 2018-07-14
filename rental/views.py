@@ -17,3 +17,27 @@ class CategoryViewSet(viewsets.ModelViewSet):
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+
+class DesignViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Design.objects.all()
+    serializer_class = DesignSerializer
+
+
+class PeriodViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Period.objects.all()
+    serializer_class = PeriodSerializer
+
+
+class DistrictViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = District.objects.all()
+    serializer_class = DistrictSerializer
