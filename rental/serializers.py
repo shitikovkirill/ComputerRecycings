@@ -8,9 +8,31 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
         fields = ('title', 'description', 'id')
 
 
+class DesignSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Design
+        fields = ('title', 'description', 'id')
+
+
+class PeriodSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Period
+        fields = ('title', 'description', 'id')
+
+
+class DistrictSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = District
+        fields = ('title', 'description', 'id')
+
+
 class RentalSerializer(serializers.HyperlinkedModelSerializer):
     categories = CategorySerializer(many=True)
+    design = DesignSerializer(many=True)
+    period = PeriodSerializer()
+    districts = DistrictSerializer()
 
     class Meta:
         model = Rental
-        fields = ('title', 'owner', 'city', 'description', 'image', 'categories', 'bedrooms', 'id')
+        fields = ('title', 'storeys', 'bedrooms', 'total_square', 'residential_square', 'city', 'description',
+                  'image', 'categories', 'design', 'period', 'districts', 'id')
