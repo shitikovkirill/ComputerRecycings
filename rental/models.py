@@ -5,11 +5,15 @@ class Category(models.Model):
     """
     Rental category
     """
-    title = models.CharField(max_length=150, verbose_name='категории')
+    title = models.CharField(max_length=150, verbose_name='категория')
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'категория'
+        verbose_name_plural = 'категории'
 
 
 class Design(models.Model):
@@ -22,6 +26,10 @@ class Design(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'конструкция'
+        verbose_name_plural = 'конструкции'
+
 
 class Period(models.Model):
     """
@@ -33,6 +41,10 @@ class Period(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'период постройки'
+        verbose_name_plural = 'периоды постройки'
+
 
 class District(models.Model):
     """
@@ -43,6 +55,10 @@ class District(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'район'
+        verbose_name_plural = 'районы'
 
 
 class Rental(models.Model):
@@ -62,10 +78,14 @@ class Rental(models.Model):
     image = models.ImageField()
 
     categories = models.ManyToManyField('Category', verbose_name='категории')
-    design = models.ManyToManyField('Design', verbose_name='конструкция дома', null=True)
+    design = models.ManyToManyField('Design', verbose_name='конструкции дома', null=True)
 
     period = models.ForeignKey('Period', verbose_name='период постройки', null=True, on_delete=models.SET_NULL)
-    districts = models.ForeignKey('District', verbose_name='районы', null=True, on_delete=models.SET_NULL)
+    districts = models.ForeignKey('District', verbose_name='район', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'дом'
+        verbose_name_plural = 'дома'
