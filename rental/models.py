@@ -62,8 +62,8 @@ class Rental(models.Model):
     image = models.ImageField()
 
     categories = models.ManyToManyField('Category', verbose_name='категории')
+    design = models.ManyToManyField('Design', verbose_name='конструкция дома', null=True)
 
-    design = models.ForeignKey('Design', verbose_name='конструкция дома', null=True, on_delete=models.SET_NULL)
     period = models.ForeignKey('Period', verbose_name='период постройки', null=True, on_delete=models.SET_NULL)
     districts = models.ForeignKey('District', verbose_name='районы', null=True, on_delete=models.SET_NULL)
 

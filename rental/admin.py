@@ -60,7 +60,7 @@ class RentalResource(resources.ModelResource):
 
 class RentalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = RentalResource
-    list_display = ('title', 'city', 'design', 'period', 'image', )
+    list_display = ('title', 'city', 'period', 'districts', 'image', )
     list_per_page = 20
 
 
