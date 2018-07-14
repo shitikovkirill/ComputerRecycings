@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.authtoken import views
 from rest_framework import routers
 from rental.views import *
 
@@ -24,8 +23,6 @@ router.register(r'rentals', RentalViewSet)
 router.register(r'categories', CategoryViewSet)
 
 api_patterns = ([
-    path('token/', views.obtain_auth_token),
-    path('', include('autorisation.urls')),
     path('', include(router.urls)),
 ], 'api')
 

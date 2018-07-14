@@ -16,6 +16,42 @@ class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_per_page = 20
 
 
+class DesignResource(resources.ModelResource):
+
+    class Meta:
+        model = Design
+
+
+class DesignAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    resource_class = DesignResource
+    list_display = ('title',)
+    list_per_page = 20
+
+
+class PeriodResource(resources.ModelResource):
+
+    class Meta:
+        model = Period
+
+
+class PeriodAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    resource_class = PeriodResource
+    list_display = ('title',)
+    list_per_page = 20
+
+
+class DistrictResource(resources.ModelResource):
+
+    class Meta:
+        model = District
+
+
+class DistrictAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    resource_class = DistrictResource
+    list_display = ('title',)
+    list_per_page = 20
+
+
 class RentalResource(resources.ModelResource):
 
     class Meta:
@@ -24,9 +60,12 @@ class RentalResource(resources.ModelResource):
 
 class RentalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = RentalResource
-    list_display = ('title', 'owner', 'city', 'image', )
+    list_display = ('title', 'city', 'design', 'period', 'image', )
     list_per_page = 20
 
 
-admin.site.register(Category, CategoryAdmin)
 admin.site.register(Rental, RentalAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Design, DesignAdmin)
+admin.site.register(Period, PeriodAdmin)
+admin.site.register(District, DistrictAdmin)

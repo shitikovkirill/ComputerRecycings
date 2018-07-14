@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -149,9 +149,12 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Rentals',
     'MENU': (
         {
-            'app': 'auth', 'label': 'Authentication',
+            'app': 'auth', 'label': 'Пользователи',
             'models': ('user', 'group'), 'icon': 'icon-lock',
-            'rentals': ('rental', 'category'), 'icon': 'icon-lock',
+         },
+        {
+            'app': 'rental', 'label': 'Риелтор',
+            'models': ('rental', 'category', 'design', 'period', 'district', ), 'icon': 'icon-lock',
          },
     ),
     'LIST_PER_PAGE': 15
