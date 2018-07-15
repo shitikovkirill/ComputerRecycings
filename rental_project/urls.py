@@ -23,7 +23,7 @@ router.register(r'rentals', RentalViewSet)
 router.register(r'categories', CategoryViewSet)
 router.register(r'designs', DesignViewSet)
 router.register(r'periods', PeriodViewSet)
-router.register(r'district', DistrictViewSet)
+router.register(r'districts', DistrictViewSet)
 
 api_patterns = ([
     path('', include(router.urls)),
