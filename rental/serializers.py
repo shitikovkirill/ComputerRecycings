@@ -30,9 +30,9 @@ class RentalSerializer(serializers.HyperlinkedModelSerializer):
     categories = CategorySerializer(many=True)
     design = DesignSerializer(many=True)
     period = PeriodSerializer()
-    districts = DistrictSerializer()
+    district = DistrictSerializer()
 
     class Meta:
         model = Rental
         fields = ('title', 'storeys', 'bedrooms', 'total_square', 'residential_square', 'description',
-                  'image', 'categories', 'design', 'period', 'districts', 'id')
+                  'image', 'categories', 'design', 'period', 'district', 'id')

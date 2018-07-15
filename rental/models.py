@@ -80,7 +80,7 @@ class Rental(models.Model):
     design = models.ManyToManyField('Design', verbose_name='конструкции дома')
 
     period = models.ForeignKey('Period', verbose_name='период постройки', null=True, on_delete=models.SET_NULL)
-    districts = models.ForeignKey('District', verbose_name='район', null=True, on_delete=models.SET_NULL)
+    district = models.ForeignKey('District', verbose_name='район', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title
