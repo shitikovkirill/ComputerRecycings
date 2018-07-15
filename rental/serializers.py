@@ -27,6 +27,8 @@ class DistrictSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class RentalSerializer(serializers.HyperlinkedModelSerializer):
+    totalsquare = serializers.IntegerField(source='total_square')
+    residentialsquare = serializers.IntegerField(source='residential_square')
     categories = CategorySerializer(many=True)
     design = DesignSerializer(many=True)
     period = PeriodSerializer()
@@ -34,5 +36,5 @@ class RentalSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Rental
-        fields = ('title', 'storeys', 'bedrooms', 'total_square', 'residential_square', 'description',
+        fields = ('title', 'storeys', 'bedrooms', 'totalsquare', 'residentialsquare', 'description',
                   'image', 'categories', 'design', 'period', 'district', 'id')
