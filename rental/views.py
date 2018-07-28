@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .serializers import *
 from .models import *
+from .filters import *
 
 
 class RentalViewSet(viewsets.ModelViewSet):
@@ -9,6 +10,7 @@ class RentalViewSet(viewsets.ModelViewSet):
     """
     queryset = Rental.objects.all()
     serializer_class = RentalSerializer
+    filter_backends = (SliderFilter, SelectFilter)
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
