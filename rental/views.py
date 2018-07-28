@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .serializers import *
 from .models import *
+from .filters import *
 
 
 class RentalViewSet(viewsets.ModelViewSet):
@@ -9,35 +10,7 @@ class RentalViewSet(viewsets.ModelViewSet):
     """
     queryset = Rental.objects.all()
     serializer_class = RentalSerializer
-
-    def filter_queryset(self, queryset):
-
-        bedrooms = self.request.GET.get('bedrooms')
-        storey = self.request.GET.get('storey')
-        max_total_square = self.request.GET.get('max_total_square')
-        min_total_square = self.request.GET.get('min_total_square')
-        max_residential_square = self.request.GET.get('max_residential_square')
-        min_residential_square = self.request.GET.get('min_residential_square')
-
-        if bedrooms:
-            queryset = queryset.filter(bedrooms=bedrooms)
-
-        if storey:
-            queryset = queryset.filter(storeys=int(storey))
-
-        if max_total_square:
-            queryset = queryset.filter(total_square__lte=max_total_square)
-
-        if min_total_square:
-            queryset = queryset.filter(total_square__gte=min_total_square)
-
-        if max_residential_square:
-            queryset = queryset.filter(residential_square__lte=max_residential_square)
-
-        if min_residential_square:
-            queryset = queryset.filter(residential_square__gte=min_residential_square)
-
-        return super().filter_queryset(queryset)
+    filter_backends = (SliderFilter, SelectFilter)
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
