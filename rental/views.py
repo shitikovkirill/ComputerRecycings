@@ -29,13 +29,13 @@ class RentalViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(total_square__lte=max_total_square)
 
         if min_total_square:
-            queryset = queryset.filter(total_square__gte=max_total_square)
+            queryset = queryset.filter(total_square__gte=min_total_square)
 
         if max_residential_square:
-            pass
+            queryset = queryset.filter(residential_square__lte=max_residential_square)
 
         if min_residential_square:
-            pass
+            queryset = queryset.filter(residential_square__gte=min_residential_square)
 
         return super().filter_queryset(queryset)
 
